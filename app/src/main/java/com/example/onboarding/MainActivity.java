@@ -6,17 +6,24 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends AppCompatActivity {
 
     ViewPager mSLideViewPager;
     LinearLayout mDotLayout;
-    Button backbtn, nextbtn, skipbtn;
-
+    Button nextbtn, skipbtn;
+    GoogleMap googleMap;
     TextView[] dots;
     ViewPagerAdapter viewPagerAdapter;
 
@@ -25,22 +32,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        backbtn = findViewById(R.id.backbtn);
         nextbtn = findViewById(R.id.nextbtn);
         skipbtn = findViewById(R.id.skipButton);
+        createMapView();
+        addMarker();
 
-        backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (getitem(0) > 0){
-
-                    mSLideViewPager.setCurrentItem(getitem(-1),true);
-
-                }
-
-            }
-        });
 
         nextbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,15 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
             setUpindicator(position);
 
-            if (position > 0){
 
-                backbtn.setVisibility(View.VISIBLE);
-
-            }else {
-
-                backbtn.setVisibility(View.INVISIBLE);
-
-            }
 
         }
 
@@ -135,5 +123,45 @@ public class MainActivity extends AppCompatActivity {
 
         return mSLideViewPager.getCurrentItem() + i;
     }
+    /**
+     * Initialises the mapview
+     */
+    private void createMapView(){
+        /**
+         * Catch the null pointer exception that
+         * may be thrown when initialising the map
+         */
+        try {
+            if(null == googleMap){
+                googleMap = ((MapFragment) getFragmentManager().findFragmentById(
+                        R.id.mapView)).getMap();
 
+                /**
+                 * If the map is still null after attempted initialisation,
+                 * show an error to the user
+                 */
+                if(null == googleMap) {
+                    Toast.makeText(getApplicationContext(),
+                            "Error creating map", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } catch (NullPointerException exception){
+            Log.e("mapApp", exception.toString());
+        }
+    }
+
+    /**
+     * Adds a marker to the map
+     */
+    private void addMarker(){
+
+        /** Make sure that the map has been initialised **/
+        if(null != googleMap){
+            googleMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(0, 0))
+                    .title("Marker")
+                    .draggable(true)
+            );
+        }
+    }
 }

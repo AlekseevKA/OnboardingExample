@@ -1,39 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    app:flow_horizontalAlign="center">
+    app:flow_horizontalAlign="center"
+    android:id="@+id/linearLayout">
+
+    <ImageView
+        android:id="@+id/titleImage2"
+        android:layout_width="344dp"
+        android:layout_height="596dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="116dp"
+        app:layout_constraintBottom_toBottomOf="@+id/titleImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleImage"
+        app:layout_constraintVertical_bias="0.583"
+        app:srcCompat="@drawable/vector_62"
+        tools:layout_conversion_absoluteHeight="209dp"
+        tools:layout_conversion_absoluteWidth="411dp" />
 
     <ImageView
         android:id="@+id/titleImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/image1"/>
-
-    <TextView
-        android:id="@+id/texttitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="@string/heading_one"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="28dp"/>
+        android:layout_width="200dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="308dp"
+        android:src="@drawable/image1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="198dp"
+        tools:layout_conversion_absoluteWidth="104dp" />
 
     <TextView
         android:id="@+id/textdeccription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
+        android:layout_width="500dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="398dp"
         android:fontFamily="@font/poppins"
         android:text="@string/desc_one"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="16dp"/>
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.919"
+        tools:layout_conversion_absoluteHeight="94dp"
+        tools:layout_conversion_absoluteWidth="351dp" />
+
+    <TextView
+        android:id="@+id/texttitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="365dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/heading_one"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/textdeccription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958"
+        tools:layout_conversion_absoluteHeight="48dp"
+        tools:layout_conversion_absoluteWidth="411dp" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
