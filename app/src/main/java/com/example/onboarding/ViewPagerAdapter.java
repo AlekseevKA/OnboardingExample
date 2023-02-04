@@ -21,16 +21,16 @@ public class ViewPagerAdapter extends PagerAdapter {
 
             R.drawable.image1,
             R.drawable.image22,
-            R.drawable.barista,
+            R.drawable.yyyyyybbbar,
             R.drawable.image44
 
     };
     int images2[] = {
 
-            R.drawable.vector1,
-            R.drawable.vector2,
-            R.drawable.vector3,
-            R.drawable.vector4
+      //      R.drawable.vector1,
+      //      R.drawable.vector2,
+      //      R.drawable.vector3,
+      //      R.drawable.vector4
 
     };
 
@@ -88,7 +88,7 @@ public class ViewPagerAdapter extends PagerAdapter {
   //      slidelayout.setLayoutMode(fragments[position]);
 
         slidetitleimage.setImageResource(images[position]);
-        slidetitleimage2.setImageResource(images2[position]);
+//        slidetitleimage2.setImageResource(images2[position]);
         slideHeading.setText(headings[position]);
         slideDesciption.setText(description[position]);
 
