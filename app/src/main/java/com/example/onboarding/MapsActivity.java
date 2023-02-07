@@ -48,6 +48,11 @@ private ActivityMapsBinding binding;
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setAllGesturesEnabled(true);
 
+        LatLng ykt = new LatLng(62.038381, 129.732465);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(ykt));
+
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(7f));
+
         // Add a marker in Sydney and move the camera
 
     }
